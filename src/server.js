@@ -1,9 +1,8 @@
-import * as Stocks from 'stocks.js';
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-let stockData = new Stocks('WA6P6PY8NAJ63CDX');
+// let stockData = new Stocks('WA6P6PY8NAJ63CDX');
 
 const app = express();
 app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -15,14 +14,7 @@ const port = process.env.PORT || 8080;
 app.set('port', port);
 
 app.get('/stocks', (req, res) => {
-  const options = {
-    symbol: 'AAPL',
-    interval: 'weekly',
-    amount: 52,
-  };
-  stockData.timeSeries(options).then((results) => {
-    res.send(results);
-  });
+  res.send('hello');
 });
 
 app.listen(app.get('port'), () => {
