@@ -19,14 +19,10 @@ const parseDateTimeWeekly = timeParse('%Y-%m-%d');
 
 export function getData(url) {
   const promiseIntraDayContinuous = fetch(url)
-    // const promiseIntraDayContinuous = fetch(
-    //   'https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/bitfinex_xbtusd_1m.csv'
-    // )
     .then((response) => response.text())
     .then((data) => csvParse(data, parseData(parseDateTimeWeekly)))
     .then((data) => {
       data.sort((a, b) => {
-        console.log(a);
         return a.timestamp - b.timestamp;
       });
       return data;

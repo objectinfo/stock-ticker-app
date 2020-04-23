@@ -22,8 +22,8 @@ import { last } from 'react-stockcharts/lib/utils';
 
 class IntradayCandleStickChart extends React.Component {
   render() {
+    console.log(this.props);
     const { type, data, width, ratio } = this.props;
-
     const xAccessor = (d) => d.timestamp;
     const start = xAccessor(last(data));
     const end = xAccessor(data[Math.max(0, data.length - 150)]);
